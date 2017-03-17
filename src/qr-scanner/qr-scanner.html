@@ -231,9 +231,7 @@
                 this.$.ajax.params = {
                   user: data,
                 };
-                this.debounce('scanRequest',function() {
-                  this.$.ajax.generateRequest();
-                },1500);
+                this.$.ajax.generateRequest();
                 this.set('loading', true);
               }.bind(this),
               function(error) {
@@ -259,9 +257,7 @@
               this.$.ajax.params = {
                 user: data,
               };
-              this.debounce('scanRequest',function() {
-                this.$.ajax.generateRequest();
-              },1500);
+              this.$.ajax.generateRequest();
               this.set('loading', true);
             }.bind(this);
           }
