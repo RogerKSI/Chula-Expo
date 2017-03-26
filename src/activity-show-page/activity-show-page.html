@@ -33,7 +33,7 @@
         width: 100%;
 				position: relative;
       }
-			
+
 			.card-content {
 				position: relative;
 			}
@@ -374,7 +374,8 @@
 			<bottom-prefab-speed-dial reveals effects="waterfall">
 				<!--<paper-fab mini icon="icons:create" on-tap="_onEdit"></paper-fab>-->
 				<paper-fab mini icon="image:camera-alt" on-tap="_onLaunchQR"></paper-fab>
-				<paper-fab mini icon="maps:local-offer" on-tap="_onActivityCheckListClick"></paper-fab>
+        <paper-fab mini icon="maps:local-offer" on-tap="_onActivityCheckListClick"></paper-fab>
+        <paper-fab mini icon="icons:archive" on-tap="_onLoadUserList"></paper-fab>
 				<!--<paper-fab mini icon="icons:delete" on-tap=	"_onRemove"></paper-fab>-->
 			</bottom-prefab-speed-dial>
 		</div>
@@ -491,11 +492,14 @@
           }.bind(this), 300);
         }
       },
-			_onActivityCheckListClick: function(e) {
+      _onActivityCheckListClick: function(e) {
         this.$.activityCheckList.generateRequest();
         setTimeout(function() {
           this.$.activityCheckDialog.open();
         }.bind(this), 50)
+			},
+      _onLoadUserList: function(e) {
+        window.location = window.api + '/api/activities/' + this.activityId + '/checkin/csv';
 			},
 
       _convertToDate: function(dateTime) {
